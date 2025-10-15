@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0 20px;
+  color: #ffffff;
+  background: linear-gradient(to right, #202020, #2c1d50);
+  display: grid;
+  grid-template-areas: "header header header" "aside main route" "footer footer footer";
+  grid-template-columns: 350px 1fr 1fr; /* 1fr = take up one fraction of the remaining space */
+  grid-template-rows: 150px 1fr 150px; /* 1vh = 1% of the height of the browser window*/
+  height: 100vh;
+}
+
+body > header {
+  grid-area: header;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 2.5em;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 5px;
+}
+.header-buttons button {
+  border: none;
+  border-radius: 5px;
+  padding: 8px 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 150px;
+  color: white;
+  font-size: 1em;
+}
+
+.load__btn {
+  background-color: #4c9be6;
+}
+
+.update__btn {
+  background-color: #4091c7;
+}
+
+body > aside {
+  grid-area: aside;
+  padding: 10px;
+}
+
+aside h2 {
+  margin-top: 0;
+  font-size: 1em;
+}
+
+.workouts {
+  list-style: none;
+  padding: 0;
+}
+
+.workout__btn {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 0;
+  background-color: #10415f;
+  color: white;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+body > main {
+  grid-area: main;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin: 0;
+}
+
+.workout-stats,
+.workout-recents {
+  background-color: rgb(0, 77, 77);
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.workout-map {
+  grid-area: route;
+  padding: 20px;
+  background-color: rgb(1, 105, 83);
+  border-radius: 10px;
+  color: white;
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+body > footer {
+  grid-area: footer;
+  text-align: center;
+  padding: 10px;
+  margin: auto;
+}
+
+@media (max-width: 1000px) {
+  body {
+    grid-template-areas:
+      "header"
+      "aside"
+      "main"
+      "route"
+      "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-items: center; /* centers grid items horizontally */
+  }
+
+  body > main {
+    padding: 0;
+    width: 50%;
+  }
+
+  .header-buttons button {
+    font-size: 0.9em;
+    padding: 10px;
+    width: auto;
+  }
+
+  header,
+  aside,
+  main,
+  .workout-map,
+  footer {
+    width: 350px; /* match aside width */
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.5em;
+  }
+
+  .header-buttons button {
+    font-size: 0.7em;
+    padding: 8px;
+    width: auto;
+  }
+
+  .workout__btn {
+    font-size: 1em;
+  }
+
+  .workout-stats,
+  .workout-recents,
+  .workout-map {
+    padding: 15px;
+    border-radius: 8px;
+  }
+}

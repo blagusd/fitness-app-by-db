@@ -8,29 +8,33 @@
       name="description"
       content="This application is designed to collect, process, and analyze fitness activity data."
     />
+    <link rel="stylesheet" href="style.css" />
+
     <title>Fitness App By DB!</title>
   </head>
   <body>
     <header>
       <h1><i>Welcome to</i> Fitness App By DB!</h1>
-      <button class="update__btn">Update results</button>
-      <button class="load__btn">Load new .fit file</button>
+      <div class="header-buttons">
+        <button class="update__btn">Update results</button>
+        <button class="load__btn">Load new .fit file</button>
+      </div>
     </header>
-    <main>
-      <p>To be developed further...</p>
-      <aside>
-        <!-- Workout selection menu -->
-        <h2>Choose workout to display the results</h2>
-        <ul class="workouts">
-          <li><button class="workout__btn" disabled>Loading...</button></li>
-          <!-- 
+    <aside>
+      <!-- Workout selection menu -->
+      <h2>Choose workout to display the results</h2>
+      <ul class="workouts">
+        <li><button class="workout__btn" disabled>Loading...</button></li>
+        <!-- 
             <li><button class="workout-btn" data-type="running">Running</button></li>
             <li><button class="workout-btn" data-type="strength">Strength Workout</button></li>
             <li><button class="workout-btn" data-type="cycling">Cycling</button></li>
             <li><button class="workout-btn" data-type="yoga">Yoga</button></li>
           -->
-        </ul>
-      </aside>
+      </ul>
+    </aside>
+    <main>
+      <!-- <p>To be developed further...</p> -->
       <section class="workout-stats">
         <!-- Workout stats panel -->
         <h3>Workout Statistics</h3>
@@ -47,29 +51,38 @@
             -->
         </ul>
       </section>
-      <section class="workout-recents"> <!-- Recent workouts list -->
+      <section class="workout-recents">
+        <!-- Recent workouts list -->
         <h3>Recent workouts</h3>
-       <label id="workout-count-label" for="workout-count">Show last </label>
-       <input type="number" id="workout-count" name="workout-count" min="1" max="20" value="5" />
-       <span class="workout-recents-list">
-         <ul>
-           <li>No recent workouts</li>
-           <!--
+        <label id="workout-count-label" for="workout-count">Show last </label>
+        <input
+          type="number"
+          id="workout-count"
+          name="workout-count"
+          min="1"
+          max="20"
+          value="5"
+        />
+        <span class="workout-recents-list">
+          <ul>
+            <li>No recent workouts</li>
+            <!--
             <li>Running - 30 mins - Oct 1, 2025</li>
             <li>Cycling - 45 mins - Oct 3, 2025</li>
             <li>Strength Workout - 60 mins - Oct 5, 2025</li>
             -->
-            </ul>
+          </ul>
         </span>
       </section>
-      <section class="workout-map">
-        <!-- Map display -->
-        <h3>Workout Route</h3>
-        <div class="map-container">
-          <p>Map will be displayed here</p>
-          <!-- Placeholder for map integration -->
-        </div>
     </main>
+    <section class="workout-map">
+      <!-- Map display -->
+      <h3>Workout Route</h3>
+      <div class="map-container">
+        <p>Map will be displayed here</p>
+        <!-- Placeholder for map integration -->
+      </div>
+    </section>
     <footer id="copyrights">
       <p>Copyrights © 2025</p>
       <p><i>Fitness App By DB</i></p>
