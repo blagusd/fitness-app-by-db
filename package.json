@@ -1,0 +1,25 @@
+{
+  "name": "fitness-app-by-db",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "⚠️ Note: This project is currently in early development. The structure, features, and implementation are subject to change as the application evolves.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/js/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blagusd/fitness-app-by-db.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blagusd/fitness-app-by-db/issues"
+  },
+  "homepage": "https://github.com/blagusd/fitness-app-by-db#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

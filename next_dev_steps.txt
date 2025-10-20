@@ -1,0 +1,7 @@
+1. Click the “Update results” button
+
+2. See a popup form asking for PostgreSQL credentials
+
+3. While connecting, show a spinner overlay and blur the rest of the page
+
+4. Once connected, load and display available workouts from all schemas and tables
