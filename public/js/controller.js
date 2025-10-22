@@ -1,16 +1,32 @@
+import { database as db } from "./model.js";
 import credentialsView from "./views/credentialsView.js";
+import { connectToDatabase } from "./helpers.js";
 
 const controlCredentials = async function () {
   try {
-    credentialsView.renderSpinner();
     credentialsView.renderStatic();
-    credentialsView.addHandlerCloseOverlay();
+    credentialsView.getDatabaseCredentials(async function ({
+      dbname,
+      username,
+      password,
+    }) {
+      try {
+        credentialsView.renderSpinner();
+        const results = await connectToDatabase({ dbname, username, password });
+        credentialsView.renderMessage("Database connected successfully!");
+        console.log(results);
+        credentialsView.closeForm();
+      } catch (err) {
+        credentialsView.renderError(`Connection failed: ${err.message}. ‼️`);
+      }
+    });
+    credentialsView.closeForm();
   } catch (err) {
     credentialsView.renderError(`${err} 🚩`);
   }
 };
 
 const init = function () {
-  credentialsView.addHandlerConnect(controlCredentials);
+  credentialsView.addHandlerOpenForm(controlCredentials);
 };
 init();

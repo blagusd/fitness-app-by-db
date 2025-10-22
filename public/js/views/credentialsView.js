@@ -3,6 +3,7 @@ import View from "./View.js";
 class CredentialsView extends View {
   _parentElement = document.querySelector(".overlay-container");
   _errorMessage = "No workouts found. Check your database connection.";
+  _message = "Credentials correct! Connection to database available.";
 
   _generateMarkup() {
     return `<div class="overlay">
@@ -21,16 +22,11 @@ class CredentialsView extends View {
             </div>`;
   }
 
-  addHandlerConnect(handler) {
-    document
-      .querySelector(".update__btn")
-      .addEventListener("click", function (e) {
-        e.preventDefault();
-        handler();
-      });
+  addHandlerOpenForm(handler) {
+    document.querySelector(".update__btn").addEventListener("click", handler);
   }
 
-  addHandlerCloseOverlay() {
+  closeForm() {
     const overlay = document.querySelector(".overlay");
     if (!overlay) return;
     // Outside click
@@ -46,6 +42,23 @@ class CredentialsView extends View {
       }
     }
     document.addEventListener("keydown", escHandler);
+  }
+
+  getDatabaseCredentials(handler) {
+    const btn = document.querySelector(".submit__btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      const dbname = document.querySelector("#dbname")?.value;
+      const username = document.querySelector("#username")?.value;
+      const password = document.querySelector("#password")?.value;
+      if (!dbname || !username || !password) {
+        this.renderError("Credentials are not complete. Please enter again!");
+        return;
+      }
+      console.log(dbname, username, password);
+      handler({ dbname, username, password });
+    });
   }
 }
 
