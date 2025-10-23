@@ -32,7 +32,6 @@ app.post("/connect-db", async (req, res) => {
       host: "localhost",
       port: 5432,
     });
-    console.log(client);
     await client.connect();
     const data = await loadDatabaseData(client);
     await client.end();

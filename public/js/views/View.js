@@ -1,3 +1,5 @@
+import { TIMEOUT_CLEAR } from "../config.js";
+
 export default class View {
   _data;
 
@@ -14,18 +16,18 @@ export default class View {
   }
 
   renderError(msg = this._errorMessage) {
-    const markup = `<div class="error>
+    const markup = `<div class="error">
                         <p>❗${msg}</p>
                     </div>`;
-    this._clear();
+    setTimeout(() => this._clear(), TIMEOUT_CLEAR * 1000);
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 
   renderMessage(msg = this._message) {
-    const markup = `<div class="error>
-                        <p>❗${msg}</p>
+    const markup = `<div class="message">
+                        <p>ℹ️ ${msg}</p>
                     </div>`;
-    this._clear();
+    setTimeout(() => this._clear(), TIMEOUT_CLEAR * 1000);
     this._parentElement.insertAdjacentHTML("afterbegin", markup);
   }
 

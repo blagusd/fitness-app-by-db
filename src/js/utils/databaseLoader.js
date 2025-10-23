@@ -1,6 +1,8 @@
+import { SCHEMA_BLACKLIST } from "../config.js";
+
 export async function loadDatabaseData(client) {
   const schemasRes = await client.query(
-    `SELECT schema_name FROM information_schema.schemata WHERE schema_name NOT IN ('pg_catalog', 'information_schema', 'public')`
+    `SELECT schema_name FROM information_schema.schemata WHERE schema_name NOT IN ${SCHEMA_BLACKLIST}`
   );
   const schemas = schemasRes.rows.map((row) => row.schema_name);
   let results = {};

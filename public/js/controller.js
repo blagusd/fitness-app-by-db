@@ -13,8 +13,8 @@ const controlCredentials = async function () {
       try {
         credentialsView.renderSpinner();
         const results = await connectToDatabase({ dbname, username, password });
-        credentialsView.renderMessage("Database connected successfully!");
-        console.log(results);
+        credentialsView.renderMessage(`${results.message}`);
+        db.workouts = results.data;
         credentialsView.closeForm();
       } catch (err) {
         credentialsView.renderError(`Connection failed: ${err.message}. ‼️`);

@@ -4,5 +4,5 @@ export const database = {
     username: "",
     password: "",
   },
-  workouts: [],
+  workouts: {},
 };

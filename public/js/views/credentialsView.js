@@ -56,7 +56,6 @@ class CredentialsView extends View {
         this.renderError("Credentials are not complete. Please enter again!");
         return;
       }
-      console.log(dbname, username, password);
       handler({ dbname, username, password });
     });
   }
