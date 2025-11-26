@@ -1,4 +1,5 @@
 # fitness-app-by-db
+⚠️ [26-11-2025] UPDATE: This project is currently stopped. Another, with higher priority occured --> please check: https://github.com/blagusd/app_doandbefitness
 ⚠️ Note: This project is currently in early development. The structure, features, and implementation are subject to change as the application evolves.
 
 ## 📌Overview
